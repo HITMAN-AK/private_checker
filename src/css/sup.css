@@ -1,0 +1,103 @@
+.smain{
+    height: 100vh;
+    width: 100%;
+    background-image: url("../image/search.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sbody{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 90px;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.usm{
+    margin-top: 10px;
+}
+#mss{
+    text-align: center;
+    color: red;
+}
+#av{
+    text-align: center;
+    color: red;
+}
+.sbody input{
+    color: rgb(255, 255, 255);
+    background-color: black;
+}
+.sbody button{
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    border: 2px solid red;
+}
+.nbody{
+    height: 145px;
+    width: 350px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 20px;
+}
+#sp{
+    display: inline-block;
+    margin-left: 5px;
+    height: 18px;
+    width: 20px;
+    background-image: url("../image/sp.png");
+    background-position: center;
+    background-size: cover;
+    background-color: white;
+}
+#hp{
+    display: inline-block;
+    margin-left: 5px;
+    height: 18px;
+    width: 20px;
+    background-image: url("../image/eye-password-hide-icon-512x512-iv45hct9.png");
+    background-position: center;
+    background-size: cover;
+    background-color: white;
+}
+.nbody input{
+    width: 83%;
+}
+#nsub{
+    margin-left: 30%;
+    border: 2px solid rgb(0, 0, 0);
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+}
+.upsm{
+    margin-top: 15px;
+}
+#mess{
+    text-align: center;
+    color: red;
+}
+#cup{
+    color: black;
+}
+#ck{
+    margin-left: 5px;
+    border-radius: 20px;
+    font-size: 8px;
+    color: white;
+    background-color: black;
+}

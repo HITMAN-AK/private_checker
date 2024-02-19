@@ -1,0 +1,41 @@
+.lanm{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+.dcil{
+    margin-top: 20px;
+    font-weight: bolder;
+    color: orange;
+}
+.lanb{
+    width: 280px;
+    height: 150px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.lanb span{
+    color: white;
+}
+.lanb button{
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    border: 2px solid red;
+    background-color: black;
+    width: 60px;
+}
+#out{
+    margin-left: 10px;
+}
+#leave{
+    margin-left: 10px;
+}
