@@ -14,7 +14,7 @@
 }
 .lanb{
     width: 280px;
-    height: 150px;
+    height: 200px;
     padding: 20px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 16px;
@@ -31,11 +31,14 @@
     color: rgb(255, 255, 255);
     border: 2px solid red;
     background-color: black;
-    width: 60px;
+    width: 62px;
 }
 #out{
     margin-left: 10px;
 }
 #leave{
+    margin-left: 10px;
+}
+.ts{
     margin-left: 10px;
 }

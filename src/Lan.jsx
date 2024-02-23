@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import "../src/css/lan.css";
 import Load from "./Load";
@@ -10,6 +10,8 @@ function Lan() {
   const [so, setso] = useState("black");
   const [sl, setsl] = useState("black");
   const [load, setload] = useState(true);
+  const [time, settime] = useState(false);
+  const t = useRef(null);
   useEffect(() => {
     const od = async () => {
       await axios
@@ -45,9 +47,12 @@ function Lan() {
         }
       });
   };
-  const o = async () => {
+  const o = () => {
+    settime(true);
+  };
+  const l = async () => {
     await axios
-      .post("http://localhost:800/off/out", {
+      .post("http://localhost:800/off/leave", {
         username: sessionStorage.getItem("un"),
       })
       .then((res) => {
@@ -56,10 +61,11 @@ function Lan() {
         }
       });
   };
-  const l = async () => {
+  const sub = async () => {
     await axios
-      .post("http://localhost:800/off/leave", {
+      .post("http://localhost:800/off/out", {
         username: sessionStorage.getItem("un"),
+        time: t.current.value,
       })
       .then((res) => {
         if (res.data.status === "sc") {
@@ -93,6 +99,17 @@ function Lan() {
             LEAVE
           </button>
         </div>
+        {time && (
+          <>
+            <div className="dcil">
+              UPTO :
+              <input type="time" className="ts" ref={t} />
+              <button type="submit" onClick={sub} className="ts">
+                SUBMIT
+              </button>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import { useRef } from "react";
 import "./css/log.css";
+import "./css/load.css";
 import { useNavigate } from "react-router";
 import axios from "axios";
 function Log() {
   const usr = useRef(null);
   const pass = useRef(null);
   const [lmess, setlmess] = useState("");
+  const [lload, setlload] = useState(false);
   const navigate = useNavigate();
   const siup = () => {
     navigate("/signup");
   };
   const submit = async (event) => {
+    setlload(true);
     event.preventDefault();
     if (usr.current.value !== "") {
       if (pass.current.value !== "") {
@@ -29,19 +32,24 @@ function Log() {
               navigate("/lan");
             }
             if (j.name === "ip") {
+              setlload(false);
               setlmess("INCORRECT PASSWORD");
             }
             if (j.name === "iu") {
+              setlload(false);
               setlmess("INCORRECT USERNAME");
             }
             if (j.name === "bic") {
+              setlload(false);
               setlmess("BOTH ARE INCORRECT");
             }
           });
       } else {
+        setlload(false);
         setlmess("FIELD IS EMPTY");
       }
     } else {
+      setlload(false);
       setlmess("FIELD IS EMPTY");
     }
   };
@@ -62,18 +70,30 @@ function Log() {
         <br />
         <div>
           <span className="pass"></span>
-          <input ref={pass} id="pass" placeholder="password.." required />
+          <input
+            type="password"
+            ref={pass}
+            id="pass"
+            placeholder="password.."
+            required
+          />
           <br />
         </div>
         <div className="fogpass">
           <button>forgot password?</button>
         </div>
-        <button type="submit" className="sr">
-          submit
-        </button>
-        <button type="reset" className="sr">
-          reset
-        </button>
+        {lload ? (
+          <div id="logload"></div>
+        ) : (
+          <>
+            <button type="submit" className="sr">
+              submit
+            </button>
+            <button type="reset" className="sr">
+              reset
+            </button>
+          </>
+        )}
         <br />
         <button className="sup" onClick={siup}>
           SIGN UP
