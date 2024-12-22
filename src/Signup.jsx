@@ -81,7 +81,6 @@ function Signup() {
     const capturedImage = webcamRef.current.getScreenshot();
     setImage(capturedImage);
     setbs(false);
-    console.log(capturedImage);
   };
   const retake = () => {
     setbs(true);

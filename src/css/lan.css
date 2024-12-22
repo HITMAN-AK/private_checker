@@ -1,53 +1,78 @@
-.lanm{
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: black;
+.lanm {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
 }
-.dcil{
-    margin-top: 20px;
-    font-weight: bolder;
-    color: orange;
+.dcil {
+  margin-top: 20px;
+  font-weight: bolder;
+  color: orange;
 }
-.lanb{
-    width: 280px;
-    height: 250px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+.lanb {
+  width: 280px;
+  height: 250px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
-.lanb span{
-    color: white;
+#emess{
+    color:red;
+    font-size: x-large;
 }
-.lanb button{
-    border-radius: 20px;
-    color: rgb(255, 255, 255);
-    border: 2px solid red;
-    background-color: black;
-    width: 62px;
+.wv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
-#out{
-    margin-left: 10px;
+#vb {
+  margin-top: 5px;
+  border-radius: 20px;
+  color: rgb(255, 255, 255);
+  border: 2px solid red;
+  background-color: black;
+  /* width: 62px; */
 }
-#leave{
-    margin-left: 10px;
+.lanb span {
+  color: white;
 }
-.ts{
-    margin-left: 10px;
+.lanb button {
+  border-radius: 20px;
+  color: rgb(255, 255, 255);
+  border: 2px solid red;
+  background-color: black;
+  width: 62px;
 }
-#lout{
-    margin-top: 15px;
-    margin-left: 73px;
-    border-radius: 20px;
-    color: rgb(255, 255, 255);
-    border: 2px solid red;
-    background-color: black;
-    width: 100px;
+#out {
+  margin-left: 10px;
+}
+#leave {
+  margin-left: 10px;
+}
+.ts {
+  margin-left: 10px;
+}
+#lout {
+  margin-top: 15px;
+  margin-left: 73px;
+  border-radius: 20px;
+  color: rgb(255, 255, 255);
+  border: 2px solid red;
+  background-color: black;
+  width: 100px;
 }
