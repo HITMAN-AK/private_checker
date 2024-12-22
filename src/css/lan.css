@@ -14,7 +14,7 @@
 }
 .lanb{
     width: 280px;
-    height: 200px;
+    height: 250px;
     padding: 20px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 16px;
@@ -41,4 +41,13 @@
 }
 .ts{
     margin-left: 10px;
+}
+#lout{
+    margin-top: 15px;
+    margin-left: 73px;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    border: 2px solid red;
+    background-color: black;
+    width: 100px;
 }

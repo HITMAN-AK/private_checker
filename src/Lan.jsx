@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import "../src/css/lan.css";
 import Load from "./Load";
+import { useNavigate } from "react-router";
 function Lan() {
   const [name, setname] = useState("");
   const [dep, setdep] = useState("");
@@ -12,6 +13,7 @@ function Lan() {
   const [load, setload] = useState(true);
   const [time, settime] = useState(false);
   const t = useRef(null);
+  const navigate=useNavigate();
   useEffect(() => {
     const od = async () => {
       await axios
@@ -61,6 +63,11 @@ function Lan() {
         }
       });
   };
+  const logout=()=>{
+    sessionStorage.removeItem("un");
+    sessionStorage.removeItem("ud");
+    navigate("/");
+  }
   const sub = async () => {
     await axios
       .post("http://localhost:800/off/out", {
@@ -110,6 +117,7 @@ function Lan() {
             </div>
           </>
         )}
+      <button id="lout" onClick={logout}>LOG-OUT</button>
       </div>
     </div>
   );

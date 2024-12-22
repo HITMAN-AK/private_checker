@@ -1,10 +1,12 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router";
+import Webcam from "react-webcam";
 import axios from "axios";
 import "../src/css/sup.css";
 function Signup() {
   const navigate = useNavigate();
   const [nu, setnu] = useState(false);
+  const [bs, setbs] = useState(true);
   const [sh, setsh] = useState(false);
   const [sb, setsb] = useState(true);
   const [mess1, setmess1] = useState("");
@@ -14,6 +16,8 @@ function Signup() {
   const uname = useRef(null);
   const pass = useRef(null);
   const uid = useRef(null);
+  const [image, setImage] = useState(null);
+  const webcamRef = useRef(null);
   const nsub = async () => {
     if (uname.current.value === "") {
       if (pass.current.value === "") {
@@ -26,20 +30,25 @@ function Signup() {
         setmess2("FIELD IS EMPTY");
       } else {
         if (pass.current.value.length > 5) {
-          await axios
-            .post("http://localhost:800/off/newup", {
-              uuid: sessionStorage.getItem("userid"),
-              uname: uname.current.value,
-              pass: pass.current.value,
-            })
-            .then((res) => {
-              if (res.data.status === "sc") {
-                sessionStorage.removeItem("userid");
-                navigate("/");
-              } else {
-                setmess2("USERNAME ALREADY EXSIST");
-              }
-            });
+          if (image) {
+            await axios
+              .post("http://localhost:800/off/newup", {
+                uuid: sessionStorage.getItem("userid"),
+                uname: uname.current.value,
+                pass: pass.current.value,
+                image:image
+              })
+              .then((res) => {
+                if (res.data.status === "sc") {
+                  sessionStorage.removeItem("userid");
+                  navigate("/");
+                } else {
+                  setmess2("USERNAME ALREADY EXSIST");
+                }
+              });
+          } else {
+            setmess2("NO PICTURE WAS CAPTURED");
+          }
         } else {
           setmess2("PASSWORD MUST BE ABOVE 5 CHARACTER");
         }
@@ -67,6 +76,16 @@ function Signup() {
           }
         });
     }
+  };
+  const captureImage = () => {
+    const capturedImage = webcamRef.current.getScreenshot();
+    setImage(capturedImage);
+    setbs(false);
+    console.log(capturedImage);
+  };
+  const retake = () => {
+    setbs(true);
+    setImage(null);
   };
   const check = async () => {
     if (uname.current.value === "") {
@@ -100,6 +119,48 @@ function Signup() {
       {nu ? (
         <div className="nbody">
           <div id="cup">CREATE YOUR USERNAME AND PASSWORD</div>
+          <h4>PHOTO FOR FACE IDENTIFICATION</h4>
+          {!image ? (
+            <Webcam
+              audio={false}
+              ref={webcamRef}
+              screenshotFormat="image/jpeg"
+              style={{ width: "100%", maxWidth: "500px", marginBottom: "20px" }}
+            />
+          ) : (
+            <div style={{ marginTop: "20px" }}>
+              <img
+                src={image}
+                alt="Captured"
+                style={{ width: "100%", maxWidth: "300px" }}
+              />
+            </div>
+          )}
+          {bs ? (
+            <button
+              onClick={captureImage}
+              style={{
+                textAlign: "center",
+                fontWeight: "bold",
+                backgroundColor: "black",
+                color: "white",
+              }}
+            >
+              Capture
+            </button>
+          ) : (
+            <button
+              onClick={retake}
+              style={{
+                textAlign: "center",
+                fontWeight: "bold",
+                backgroundColor: "black",
+                color: "white",
+              }}
+            >
+              Retake
+            </button>
+          )}
           <input
             className="upsm"
             type="text"
