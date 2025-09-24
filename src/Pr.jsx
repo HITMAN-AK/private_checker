@@ -10,7 +10,7 @@ function Pr() {
     if (ud !== null) {
       console.log(ud);
       await axios
-        .post("http://localhost:800/off/pr", { ud: ud, un: un })
+        .post(`${process.env.REACT_APP_API_URL}/pr`, { ud: ud, un: un })
         .then((res) => {
           if (res.data.per === "ac") {
             setper(true);

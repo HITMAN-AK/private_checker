@@ -19,7 +19,7 @@ function Log() {
     if (usr.current.value !== "") {
       if (pass.current.value !== "") {
         await axios
-          .post("http://localhost:800/off/login", {
+          .post(`${process.env.REACT_APP_API_URL}/login`, {
             luname: usr.current.value,
             lpass: pass.current.value,
           })
@@ -56,9 +56,9 @@ function Log() {
   return (
     <div className="login">
       <form action="POST" onSubmit={submit}>
-        <h1 className="tit">login</h1>
+        <h1 className="tit">Login</h1>
         <br />
-        <label htmlFor="una">username</label>
+        <label htmlFor="una">Username</label>
         <br />
         <div>
           <span className="una"></span>
@@ -66,7 +66,7 @@ function Log() {
           <br />
         </div>
         <br />
-        <label htmlFor="una">password</label>
+        <label htmlFor="una">Password</label>
         <br />
         <div>
           <span className="pass"></span>
@@ -78,9 +78,6 @@ function Log() {
             required
           />
           <br />
-        </div>
-        <div className="fogpass">
-          <button>forgot password?</button>
         </div>
         {lload ? (
           <div id="logload"></div>
@@ -96,7 +93,7 @@ function Log() {
         )}
         <br />
         <button className="sup" onClick={siup}>
-          SIGN UP
+          Sign Up
         </button>
         <br />
         <div id="lmess">{lmess}</div>

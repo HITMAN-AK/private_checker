@@ -1,88 +1,96 @@
-.login{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url("../image/bc.jpg");
-    background-position: center;
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("../image/bc.jpg");
+  background-position: center;
+  background-size: cover;
+  padding: 10px; /* prevent overflow on small screens */
 }
-.sr{
-    margin-top: 10px;
-    margin-left: 145px;
-    border-radius: 20px;
-    background-color: black;
-    color: white;
-    border: 2px solid red;
+
+.login form {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.323);
+  border-radius: 20px;
+  width: 100%;          /* full width on mobile */
+  max-width: 400px;     /* don’t exceed on larger screens */
+  box-sizing: border-box;
 }
-.sup{
-    margin-top: 10px;
-    color: green;
-    background-color: transparent;
-    border: none;
-    text-decoration: underline;
+
+.login form input {
+  border: none;
+  border-bottom: 1px solid black;
+  background: none;
+  outline: none;
+  padding-left: 30px;
+  width: 100%;          /* take full width of parent */
+  height: 40px;
+  margin: 10px 0;       /* space between inputs */
 }
-.tit{
-    font-size: larger;
-    text-align: center;
-    font-style: italic;
+
+.login form div {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
 }
-.login form{
+
+.login form .una,
+.login form .pass {
+  position: absolute;
+  left: 5px;            /* keep icons inside input */
+  top: 50%;
+  transform: translateY(-50%);
+  background-size: cover;
+  border-radius: 50%;
+  height: 18px;
+  width: 18px;
+}
+
+.sr {
+  margin-left:70px;
+  margin-top: 10px;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  border: 2px solid red;
+  padding: 5px 15px;
+}
+
+.sup {
+  margin-top: 10px;
+  color: green;
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+}
+
+.tit {
+  font-size: 1.5rem;
+  text-align: center;
+  font-style: italic;
+}
+
+#lmess {
+  text-align: center;  /* center instead of fixed margin */
+  color: red;
+  margin-top: 10px;
+}
+
+/* 📱 Mobile adjustments */
+@media (max-width: 600px) {
+  .login {
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.323);
-    border-radius: 20px ;
-    align-self: center;
-}
-.login form input{
-    border: none;
-    border-bottom: 1px solid black;
-    background: none;
-    outline: none;
-    padding-left: 24px;
-    width: 30vw;
-    height: 30px;
-    margin-left: 30px;
-}
-.login form .una{
-    position: absolute;
-    background-image: url("../image/proico.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 50%;
-    height:18px;
-    width: 18px;
-    margin-left: 30px;
-}
-.login form div{
-    display: flex;
-    align-items: center;
-}
-.login form label{
-    margin-top: 30px;
-    text-decoration: underline;
-}
-.login form .pass{
-    position: absolute;
-    background-image: url("../image/pasico.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    border-radius: 50%;
-    height:18px;
-    width: 18px;
-    margin-left: 30px;
-}
-.fogpass{
-    display: flex;
-    justify-content: flex-end;
-}
-.fogpass button{
-    background:none ;
-    outline: none;
-    border: none;
-    text-decoration: underline;
-    font-style: italic;
-    color: red;
-}
-#lmess{
-    margin-left: 35%;
-    color: red;
+  }
+
+  .login form input {
+    font-size: 14px;
+    height: 35px;
+  }
+
+  .sr, .sup {
+    width: 100%; /* buttons full width on mobile */
+    margin-left: 0;
+  }
 }

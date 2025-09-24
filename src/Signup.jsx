@@ -32,7 +32,7 @@ function Signup() {
         if (pass.current.value.length > 5) {
           if (image) {
             await axios
-              .post("http://localhost:800/off/newup", {
+              .post(`${process.env.REACT_APP_API_URL}/newup`, {
                 uuid: sessionStorage.getItem("userid"),
                 uname: uname.current.value,
                 pass: pass.current.value,
@@ -60,7 +60,7 @@ function Signup() {
       setmess1("FIELD IS EMPTY");
     } else {
       await axios
-        .get("http://localhost:800/off/cuid", {
+        .get(`${process.env.REACT_APP_API_URL}/cuid`, {
           headers: {
             uuid: uid.current.value,
           },
@@ -91,7 +91,7 @@ function Signup() {
       setca("FIELD IS EMPTY");
     } else {
       await axios
-        .post("http://localhost:800/off/ca", {
+        .post(`${process.env.REACT_APP_API_URL}/ca`, {
           uname: uname.current.value,
         })
         .then((res) => {
